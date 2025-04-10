@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public void Jogar()
     {
 
-        SceneManager.LoadScene("Cruz");
+        SceneManager.LoadScene("Fase1");
 
     }
     public void Opcoes()
