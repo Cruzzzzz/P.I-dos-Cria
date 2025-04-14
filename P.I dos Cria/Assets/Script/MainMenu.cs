@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject opcoes;
-    public GameObject preto;
 
     public void Jogar()
     {
@@ -28,7 +27,7 @@ public class MainMenu : MonoBehaviour
     public void Sair()
     {
         Application.Quit();
-
+        Debug.Log("Saiu Do Gamezada");
     }
 
 }
