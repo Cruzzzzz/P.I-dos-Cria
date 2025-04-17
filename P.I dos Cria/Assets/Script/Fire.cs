@@ -7,7 +7,6 @@ public class Fire : MonoBehaviour
     public float fireCooldown = 2f; 
 
     private float nextFireTime = 0f;
-    public AudioSource shootSound;
 
     void Update()
     {
@@ -21,7 +20,7 @@ public class Fire : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        shootSound.Play();
+        SoundEffectorController.PlaySoundEffect(SoundsEffects.Shoot);
     }
 }
    

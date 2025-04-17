@@ -4,6 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 3;
     private int currentHealth;
+    
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         // Aqui você pode colocar animação de morte, efeitos, para caso queiram usar.
-        Destroy(gameObject);
-        
+        SoundEffectorController.PlaySoundEffect(SoundsEffects.Die);
+        Destroy(gameObject); 
     }
 }
