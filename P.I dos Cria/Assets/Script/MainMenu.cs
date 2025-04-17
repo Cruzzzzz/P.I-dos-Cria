@@ -29,5 +29,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Saiu Do Gamezada");
     }
+    public void ExitMunuPlayer()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
 }
