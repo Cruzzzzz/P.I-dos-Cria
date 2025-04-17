@@ -3,70 +3,55 @@ using UnityEngine;
 
 public class ActiviPanelMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject panel; // Referência ao Panel no Inspector
     private bool isPaused = false;
-    private Fire playerShooting; 
-
-    void Start()
-    {
-        playerShooting = FindObjectOfType<Fire>();
-
-        if (panel != null)
-        {
-            panel.SetActive(false);
-        }
-    }
 
     void Update()
     {
-        // Tecla ESC para pausar/despausar
+        // Verifica se a tecla ESC foi pressionada
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePause();
-        }
-
-        // Bloqueia o Fire1 quando pausado
-        if (isPaused && Input.GetButtonDown("Fire1"))
-        {
-            return;
+            // Inverte o estado de ativação do Panel e pausa/despausa o jogo
+            TogglePanelAndPause();
         }
     }
 
-    public void TogglePause()
+    // Método para alternar o estado do Panel e pausa do jogo
+    public void TogglePanelAndPause()
     {
-        isPaused = !isPaused;
-
-        // Ativa/desativa o panel
         if (panel != null)
         {
+            // Inverte o estado atual
+            isPaused = !isPaused;
+
+            // Ativa/desativa o panel
             panel.SetActive(isPaused);
+
+            // Pausa/despausa o jogo
+            if (isPaused)
+            {
+                Time.timeScale = 0f; // Pausa o jogo
+                AudioListener.pause = true; // Pausa os áudios
+                
+            }
+            else
+            {
+                Time.timeScale = 1f; // Despausa o jogo
+                AudioListener.pause = false; // Despausa os áudios
+            }
         }
-
-        // Pausa/despausa o jogo
-        Time.timeScale = isPaused ? 0f : 1f;
-        AudioListener.pause = isPaused;
-
-        // Desativa/reativa o sistema de Fire
-        if (playerShooting != null)
+        else
         {
-            playerShooting.SetShootingEnabled(!isPaused);
+            Debug.LogWarning("Nenhum Panel atribuído ao script TogglePanelWithESC");
         }
     }
 
-    public void ClosePanel()
+    // Método opcional para fechar o panel e despausar por botão UI
+    public void ClosePanelAndUnpause()
     {
         isPaused = false;
-        if (panel != null)
-        {
-            panel.SetActive(false);
-        }
+        panel.SetActive(false);
         Time.timeScale = 1f;
         AudioListener.pause = false;
-
-        // Reativa o disparo ao fechar o panel
-        if (playerShooting != null)
-        {
-            playerShooting.SetShootingEnabled(true);
-        }
     }
 }
