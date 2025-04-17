@@ -19,8 +19,8 @@ public class Fire : MonoBehaviour
 
     void Shoot()
     {
-
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        SoundEffectorController.PlaySoundEffect(SoundsEffects.Shoot);
     }
 }
    

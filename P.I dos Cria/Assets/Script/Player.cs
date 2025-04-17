@@ -3,18 +3,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
-    public float rotationSpeed = 10f;
+    [SerializeField] PlayerRotate rotateScript;
 
     private Rigidbody2D rb;
 
     void Start()
     {
+        rotateScript = GetComponentInChildren<PlayerRotate>();
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
         MovePlayer();
-        RotateTowardsMouse();
+        rotateScript.RotateTowardsMouse();
     }
 
     void MovePlayer()
@@ -27,20 +28,5 @@ public class Player : MonoBehaviour
 
 
         rb.linearVelocity = moveDirection * speed;
-    }
-
-    void RotateTowardsMouse()
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
-        Vector2 direction = (mousePosition - transform.position).normalized;
-
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
