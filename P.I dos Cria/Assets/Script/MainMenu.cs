@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Saiu Do Gamezada");
     }
-    public void ExitMunuPlayer()
+    public void ExitMenuPlayer()
     {
         SceneManager.LoadScene("MainMenu");
     }
