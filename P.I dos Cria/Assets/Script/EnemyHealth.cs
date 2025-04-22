@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        EnemyManager.Instance?.RegisterEnemy(gameObject);
     }
 
     public void TakeDamage(int damage)

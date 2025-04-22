@@ -47782,8 +47782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5196e6e713a1dc46b5d3320e7355ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  victorySceneName: MainMenu
-  sceneLoadDelay: 1.5
 --- !u!1 &1407435963
 GameObject:
   m_ObjectHideFlags: 0

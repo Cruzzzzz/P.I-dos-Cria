@@ -370,7 +370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 36}
+  m_AnchoredPosition: {x: 199, y: -426}
   m_SizeDelta: {x: 519.3, y: 329.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940601252
@@ -419,17 +419,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'creditos:
-
-    Programadores
-
-    Andriel
-
-    Francisco
-
-    Arthur Cruz
-
-'
+  m_Text: "\t\t\t\t-Titanium Studio-\ncreditos:\n\nProgramadores\nAndriel\nFrancisco\nArthur
+    Cruz\n\n"
 --- !u!222 &940601254
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,65 +1,43 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager Instance { get; private set; }
-    [SerializeField] private string victorySceneName = "MainMenu";
-    [SerializeField] private float sceneLoadDelay = 1.5f;
+    public static EnemyManager Instance;
 
-    private List<GameObject> activeEnemies = new List<GameObject>();
-    private bool allEnemiesDead = false;
+    private List<GameObject> enemies = new List<GameObject>();
 
-    private void Awake()
+    void Awake()
     {
-        // Implementação do Singleton
         if (Instance == null)
-        {
             Instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-            return;
-        }
     }
 
     public void RegisterEnemy(GameObject enemy)
     {
-        if (!activeEnemies.Contains(enemy))
+        if (!enemies.Contains(enemy))
         {
-            activeEnemies.Add(enemy);
+            enemies.Add(enemy);
         }
     }
 
     public void UnregisterEnemy(GameObject enemy)
     {
-        if (activeEnemies.Contains(enemy))
+        if (enemies.Contains(enemy))
         {
-            activeEnemies.Remove(enemy);
-            CheckAllEnemiesDefeated();
+            enemies.Remove(enemy);
+            CheckEnemies();
         }
     }
 
-    private void CheckAllEnemiesDefeated()
+    private void CheckEnemies()
     {
-        if (activeEnemies.Count == 0 && !allEnemiesDead)
+        if (enemies.Count == 0)
         {
-            allEnemiesDead = true;
-            Invoke(nameof(LoadVictoryScene), sceneLoadDelay);
-        }
-    }
-
-    private void LoadVictoryScene()
-    {
-        if (!string.IsNullOrEmpty(victorySceneName))
-        {
-            SceneManager.LoadScene(victorySceneName);
-        }
-        else
-        {
-            Debug.LogWarning("Victory scene name not set in EnemyManager!");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
