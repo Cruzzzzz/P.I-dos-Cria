@@ -50,7 +50,7 @@ public class NPC_Dialogue : MonoBehaviour
         }
         else
         {
-            dialoguePanel.SetActive(true);
+            dialoguePanel.SetActive(false);
             startDialogue = false;
             dialogueIndex = 0;
             FindAnyObjectByType<Player>().speed = 5f;
