@@ -4,7 +4,8 @@ public class Fire : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireCooldown = 2f; 
+    public float fireCooldown = 2f;
+    public bool characterControllerEnable = true;
 
     private float nextFireTime = 0f;
 
@@ -19,8 +20,13 @@ public class Fire : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        SoundEffectorController.PlaySoundEffect(SoundsEffects.Shoot);
+        if (characterControllerEnable)
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            SoundEffectorController.PlaySoundEffect(SoundsEffects.Shoot);
+        }
+       
     }
+
 }
    

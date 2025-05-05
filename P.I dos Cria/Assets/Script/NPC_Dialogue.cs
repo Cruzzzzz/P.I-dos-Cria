@@ -18,6 +18,8 @@ public class NPC_Dialogue : MonoBehaviour
 
     public bool readyToSpeak;
     public bool startDialogue;
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,11 +29,12 @@ public class NPC_Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && readyToSpeak)
+        if (Input.GetKeyDown(KeyCode.E) && readyToSpeak)
         {
             if (!startDialogue)
             {
                 FindAnyObjectByType<Player>().speed = 0f;
+                FindAnyObjectByType<Fire>().characterControllerEnable = false;
                 StartDialogue();
             }
             else if (dialogueText.text == dialogueNPC[dialogueIndex])
@@ -54,6 +57,8 @@ public class NPC_Dialogue : MonoBehaviour
             startDialogue = false;
             dialogueIndex = 0;
             FindAnyObjectByType<Player>().speed = 5f;
+            FindAnyObjectByType<Fire>().characterControllerEnable = true;
+
         }
     }
     void StartDialogue()
@@ -79,6 +84,7 @@ public class NPC_Dialogue : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             readyToSpeak = true;
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -86,6 +92,7 @@ public class NPC_Dialogue : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             readyToSpeak = false;
+            
         }
     }
 }

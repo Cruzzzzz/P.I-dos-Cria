@@ -19,7 +19,10 @@ public class NPC : MonoBehaviour, Iinteractable
         {
             return;
         }
-        if(isDialogueActive ) {
+        if(isDialogueActive) 
+        { 
+
+        }
     }
 
     public bool CanInteract()

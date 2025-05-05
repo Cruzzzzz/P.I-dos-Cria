@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
+    private float runSpeed = 10f;
+    private float inicialSpeed;
     [SerializeField] PlayerRotate rotateScript;
 
     private Rigidbody2D rb;
@@ -11,11 +13,13 @@ public class Player : MonoBehaviour
     {
         rotateScript = GetComponentInChildren<PlayerRotate>();
         rb = GetComponent<Rigidbody2D>();
+        inicialSpeed = speed;
     }
     void Update()
     {
         MovePlayer();
         rotateScript.RotateTowardsMouse();
+        playerRun();
     }
 
     void MovePlayer()
@@ -28,5 +32,17 @@ public class Player : MonoBehaviour
 
 
         rb.linearVelocity = moveDirection * speed;
+    }
+    void playerRun()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = inicialSpeed;
+        }
+
     }
 }

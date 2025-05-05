@@ -25,9 +25,10 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         // Aqui você pode colocar animação de morte, efeitos, para caso queiram usar.
+        PlayerMoney.Instance.AddMoney(3);
         EnemyManager.Instance?.UnregisterEnemy(gameObject);
         SoundEffectorController.PlaySoundEffect(SoundsEffects.Die);
         Destroy(gameObject); 
