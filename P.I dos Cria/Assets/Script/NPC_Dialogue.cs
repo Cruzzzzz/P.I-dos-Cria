@@ -42,7 +42,7 @@ public class NPC_Dialogue : MonoBehaviour
                 NextDialogue();
             }
 
-        }
+        }   
     }
     void NextDialogue()
     {
@@ -58,7 +58,11 @@ public class NPC_Dialogue : MonoBehaviour
             dialogueIndex = 0;
             FindAnyObjectByType<Player>().speed = 5f;
             FindAnyObjectByType<Fire>().characterControllerEnable = true;
-
+            ShopOpener shopOpener = GetComponent<ShopOpener>();
+            if (shopOpener != null)
+            {
+                shopOpener.OnDialogueEnd();
+            }
         }
     }
     void StartDialogue()

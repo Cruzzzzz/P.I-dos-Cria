@@ -22,7 +22,7 @@ public class PlayerMoney : MonoBehaviour
 
     private void Start()
     {
-        UpdateMoneyUI(); // Atualiza o texto no início
+        UpdateMoneyUI(); 
     }
     public void AddMoney(int amount)
     {

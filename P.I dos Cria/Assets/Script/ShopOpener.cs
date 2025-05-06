@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class ShopOpener : MonoBehaviour
 {
-    public GameObject shopPanel; 
-    private NPC_Dialogue npcDialogue; 
+    public GameObject shopPanel;
+    private NPC_Dialogue npcDialogue;
 
     void Start()
     {
         npcDialogue = GetComponent<NPC_Dialogue>();
         if (shopPanel != null)
         {
-            shopPanel.SetActive(false); 
+            shopPanel.SetActive(false);
         }
     }
 
-    void Update()
+    // Chamado quando o diálogo termina (substitui a verificação no Update)
+    public void OnDialogueEnd()
     {
-        if (npcDialogue != null && !npcDialogue.startDialogue && !npcDialogue.dialoguePanel.activeSelf)
+        if (shopPanel != null && !shopPanel.activeSelf)
         {
             OpenShop();
         }
@@ -24,21 +25,15 @@ public class ShopOpener : MonoBehaviour
 
     void OpenShop()
     {
-        if (shopPanel != null && !shopPanel.activeSelf)
-        {
-            shopPanel.SetActive(true);
-            FindAnyObjectByType<Player>().speed = 0f;
-            FindAnyObjectByType<Fire>().characterControllerEnable = false;
-        }
+        shopPanel.SetActive(true);
+        FindAnyObjectByType<Player>().speed = 0f;
+        FindAnyObjectByType<Fire>().characterControllerEnable = false;
     }
 
     public void CloseShop()
     {
-        if (shopPanel != null)
-        {
-            shopPanel.SetActive(false);
-            FindAnyObjectByType<Player>().speed = 5f;
-            FindAnyObjectByType<Fire>().characterControllerEnable = true;
-        }
+        shopPanel.SetActive(false);
+        FindAnyObjectByType<Player>().speed = 5f;
+        FindAnyObjectByType<Fire>().characterControllerEnable = true;
     }
 }
