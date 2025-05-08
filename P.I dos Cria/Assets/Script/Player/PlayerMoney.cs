@@ -4,11 +4,10 @@ using TMPro;
 public class PlayerMoney : MonoBehaviour
 {
     public static PlayerMoney Instance;
+    public int currentMoney = 100;
+    public TMP_Text moneyText;
 
-    [SerializeField] private int currentMoney = 0;
-    [SerializeField] private TextMeshProUGUI moneyText; 
-
-    private void Awake()
+    void Awake()
     {
         if (Instance == null)
         {
@@ -20,14 +19,15 @@ public class PlayerMoney : MonoBehaviour
         }
     }
 
-    private void Start()
+    void Start()
     {
-        UpdateMoneyUI(); 
+        UpdateUI();
     }
+
     public void AddMoney(int amount)
     {
         currentMoney += amount;
-        UpdateMoneyUI();
+        UpdateUI();
     }
 
     public bool RemoveMoney(int amount)
@@ -35,16 +35,19 @@ public class PlayerMoney : MonoBehaviour
         if (currentMoney >= amount)
         {
             currentMoney -= amount;
-            UpdateMoneyUI();
+            UpdateUI();
             return true;
         }
         return false;
     }
-    private void UpdateMoneyUI()
+
+    public bool CanAfford(int amount)
     {
-        if (moneyText != null)
-        {
-            moneyText.text = $"${currentMoney}";
-        }
+        return currentMoney >= amount;
+    }
+
+    void UpdateUI()
+    {
+        moneyText.text = $"${currentMoney}";
     }
 }

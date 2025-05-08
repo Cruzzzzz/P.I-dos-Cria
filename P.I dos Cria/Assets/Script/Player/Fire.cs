@@ -2,31 +2,43 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    [Header("Configurações")]
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireCooldown = 2f;
-    public bool characterControllerEnable = true;
+    public float baseFireCooldown = 1f;
+    [SerializeField] private float currentFireCooldown;
+    public bool canShoot = true;
 
-    private float nextFireTime = 0f;
+    [Header("Upgrades")]
+    public float fireRateMultiplier = 1f;
+
+    void Start()
+    {
+        currentFireCooldown = baseFireCooldown;
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime)
+        if (Input.GetButton("Fire1") && canShoot)
         {
             Shoot();
-            nextFireTime = Time.time + fireCooldown; 
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
-        if (characterControllerEnable)
-        {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            SoundEffectorController.PlaySoundEffect(SoundsEffects.Shoot);
-        }
-       
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        SoundEffectorController.PlaySoundEffect(SoundsEffects.Shoot);
+        canShoot = false;
+        Invoke(nameof(ResetShot), currentFireCooldown * fireRateMultiplier);
     }
 
+    private void ResetShot() => canShoot = true;
+
+    public void UpgradeFireRate(float multiplier)
+    {
+        fireRateMultiplier *= multiplier;
+        Debug.Log($"Nova velocidade de tiro: {fireRateMultiplier}x");
+    }
 }
    

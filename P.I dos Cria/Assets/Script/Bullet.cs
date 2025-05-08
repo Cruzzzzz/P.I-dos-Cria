@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Header("Configura��es")]
     public float speed = 10f;
-    public int damage = 1;
+    public int baseDamage = 1;
+    public static int damageBonus = 0;
 
     private Rigidbody2D rb;
 
@@ -13,29 +15,21 @@ public class Bullet : MonoBehaviour
         rb.linearVelocity = transform.up * speed;
         Destroy(gameObject, 4f);
     }
-    private void Update()
-    {
-        
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-                
-            }
+            int totalDamage = baseDamage + damageBonus;
+            collision.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(totalDamage);
             Destroy(gameObject);
         }
-
-        
     }
-    void OnBecameInvisible()
+
+    public static void IncreaseDamage(int amount)
     {
-        Destroy(gameObject);
+        damageBonus += amount;
+        Debug.Log($"Dano aumentado para +{damageBonus}");
     }
 }
 
