@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea44bd78a6fa8f849a12acb5e7282b4d
+guid: 6637475d1272ee64792bfafef55811f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3786615839834881136
-    second: 20240423164323oip_0
+      213: 3581857972694837397
+    second: DandaraPlayer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 20240423164323oip_0
+      name: DandaraPlayer_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 631
-        height: 361
+        x: 287
+        y: 338
+        width: 506
+        height: 421
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09346cdb4fc337bc0800000000000000
-      internalID: -3786615839834881136
+      spriteID: 598606249d055b130800000000000000
+      internalID: 3581857972694837397
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e951eb62c75d96f4da93e00c9cc2ef9c
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      20240423164323oip_0: -3786615839834881136
+      DandaraPlayer_0: 3581857972694837397
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
