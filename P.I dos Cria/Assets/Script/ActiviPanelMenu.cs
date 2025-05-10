@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ActiviPanelMenu : MonoBehaviour
 {
+    
     [SerializeField] private GameObject panel;
     private bool isPaused = false;
 
