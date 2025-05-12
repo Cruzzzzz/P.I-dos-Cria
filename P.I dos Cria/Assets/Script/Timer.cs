@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(Text_Notice, 5f);
+        Destroy(Text_Notice, 8f);
     }
 
     // Update is called once per frame
