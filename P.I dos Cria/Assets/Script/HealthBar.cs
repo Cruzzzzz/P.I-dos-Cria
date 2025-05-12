@@ -3,23 +3,24 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [Header("Configuração Básica")]
-    public Slider healthSlider; 
-    public void SetMaxHealth(float maxHealth)
+    public Image healthSlider; 
+
+    private float maxHealth;
+
+    public void SetMaxHealth(float max)
     {
-        if (healthSlider != null)
-        {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = maxHealth;
-        }
+        maxHealth = max;
+        SetHealth(maxHealth);
     }
+
     public void SetHealth(float currentHealth)
     {
-        if (healthSlider != null)
+        if (healthSlider != null && maxHealth > 0)
         {
-            healthSlider.value = currentHealth;
+            healthSlider.fillAmount = currentHealth / maxHealth;
         }
     }
+
     public void SetHealth(float currentHealth, float maxHealth)
     {
         SetMaxHealth(maxHealth);

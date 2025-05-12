@@ -4694,7 +4694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ceaa6a16e1131e45b19893b22702569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
+  healthSlider: {fileID: 5060806083013270884}
 --- !u!114 &5060806083013270884
 MonoBehaviour:
   m_ObjectHideFlags: 0

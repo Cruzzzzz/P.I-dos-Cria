@@ -12,7 +12,7 @@ public class EnemyDamage : MonoBehaviour
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage); 
+                playerHealth.TakeDamage(damage);
             }
         }
     }

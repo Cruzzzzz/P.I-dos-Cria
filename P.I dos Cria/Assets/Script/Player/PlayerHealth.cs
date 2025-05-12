@@ -1,8 +1,8 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Configurações Básicas")]
     public int maxHealth = 100;
     private int currentHealth;
     public HealthBar healthBar;
@@ -19,7 +19,6 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetHealth(currentHealth, maxHealth);
-        Debug.Log("Vida totalmente restaurada!");
     }
     public void TakeDamage(int damage)
     {
@@ -38,6 +37,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player morreu!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
