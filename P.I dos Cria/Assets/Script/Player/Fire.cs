@@ -5,12 +5,12 @@ public class Fire : MonoBehaviour
     [Header("Configurações")]
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float baseFireCooldown = 2f;
+    [SerializeField]public float baseFireCooldown = 2f;
     [SerializeField] private float currentFireCooldown;
     public bool canShoot = true;
 
     [Header("Upgrades")]
-    public float fireRateMultiplier = 1f;
+    [SerializeField] public float fireRateMultiplier = 1f;
 
     void Start()
     {

@@ -4,7 +4,7 @@ using TMPro;
 public class PlayerMoney : MonoBehaviour
 {
     public static PlayerMoney Instance;
-    public int currentMoney = 100;
+    public int currentMoney;
     public TMP_Text moneyText;
 
     void Awake()
