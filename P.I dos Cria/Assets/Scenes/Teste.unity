@@ -551,7 +551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1832453122}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BuyFireRateUpgrade
         m_Mode: 1
@@ -1207,7 +1207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1665152200}
+      - m_Target: {fileID: 364378086}
         m_TargetAssemblyTypeName: ShopOpener, Assembly-CSharp
         m_MethodName: CloseShop
         m_Mode: 1
@@ -1542,6 +1542,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619667292}
   m_CullTransparentMesh: 1
+--- !u!1 &626341068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626341070}
+  - component: {fileID: 626341069}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &626341069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626341068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cef1a4bb84adc4c900788eb2bf62aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopSystem: {fileID: 0}
+--- !u!4 &626341070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626341068}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 493.77786, y: 222.33737, z: 8.189173}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636351508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1747,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1832453122}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BuyDamageUpgrade
         m_Mode: 1
@@ -3302,51 +3347,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1665152199
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1665152201}
-  - component: {fileID: 1665152200}
-  m_Layer: 0
-  m_Name: ShopController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1665152200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665152199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6a4236aacb41a4f8c275af4d654976, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopPanel: {fileID: 619667292}
---- !u!4 &1665152201
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665152199}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 435.407, y: 285.872, z: -3.760574}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667870771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,7 +3808,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832453123}
-  - component: {fileID: 1832453122}
   m_Layer: 0
   m_Name: ShopSystem
   m_TagString: Untagged
@@ -3816,41 +3815,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1832453122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832453121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8a920cab1c8599469763ecea2fc92a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageUpgrade:
-    itemName: "For\xE7a"
-    basePrice: 21
-    priceText: {fileID: 1185910158}
-    buyButton: {fileID: 681308766}
-    maxPurchases: 50
-    timesPurchased: 0
-  fireRateUpgrade:
-    itemName: Velocidade
-    basePrice: 12
-    priceText: {fileID: 1273143340}
-    buyButton: {fileID: 186970970}
-    maxPurchases: 50
-    timesPurchased: 0
-  healthRestore:
-    itemName: Potion
-    basePrice: 3
-    priceText: {fileID: 728281380}
-    buyButton: {fileID: 1860437009}
-    maxPurchases: 50
-    timesPurchased: 0
-  playerHealth: {fileID: 4471311831903668765}
-  playerFire: {fileID: 3489740396582998419}
 --- !u!4 &1832453123
 Transform:
   m_ObjectHideFlags: 0
@@ -3949,7 +3913,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1832453122}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BuyHealthRestore
         m_Mode: 1
@@ -4449,7 +4413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb32d41ba86d7540831c848846e8f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4227171415471310360, guid: 4cfe70efd1eba174d88c7b55b9aa4e6e,
+  bulletPrefab: {fileID: 3895602555116276984, guid: 69670f7a08329364f942b5aa3f6c161d,
     type: 3}
   firePoint: {fileID: 5708988955330063741}
   baseFireCooldown: 1
@@ -5164,5 +5128,5 @@ SceneRoots:
   - {fileID: 392673171}
   - {fileID: 364378083}
   - {fileID: 1411669615}
-  - {fileID: 1665152201}
   - {fileID: 1832453123}
+  - {fileID: 626341070}
