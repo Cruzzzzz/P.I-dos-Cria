@@ -3,8 +3,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Header("Configuraçôes")]
-    public float speed = 10f;
-    public float baseDamage = 1;
+    [SerializeField]public float speed = 10f;
+    [SerializeField]public float baseDamage = 1;
 
 
     private Rigidbody2D rb;
@@ -22,8 +22,13 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(baseDamage);
+            Destroy(gameObject); 
+        }
+        if (collision.gameObject.CompareTag("Tree"))
+        {
             Destroy(gameObject);
         }
+        
     }
 
 
