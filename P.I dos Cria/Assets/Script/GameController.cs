@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public ShopSystem shopSystem;
+    
 
     private void Awake()
     {

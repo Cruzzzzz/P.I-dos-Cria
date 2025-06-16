@@ -32,13 +32,7 @@ public class Fire : MonoBehaviour
         canShoot = false;
         Invoke(nameof(ResetShot), currentFireCooldown * fireRateMultiplier);
     }
-
     private void ResetShot() => canShoot = true;
 
-    public void UpgradeFireRate(float multiplier)
-    {
-        fireRateMultiplier *= multiplier;
-        Debug.Log($"Nova velocidade de tiro: {fireRateMultiplier}x");
-    }
 }
    
