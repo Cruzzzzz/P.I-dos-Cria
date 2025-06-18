@@ -1,37 +1,63 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.PackageManager;
 
 public class ShopSystem : MonoBehaviour
 {
-    [Header("variaveis da loja")]
+    [Header("Configurações da Loja")]
+    [SerializeField] private int damageCost = 12;
+    [SerializeField] private float damageUpgrade = 0.5f;
+    [SerializeField] private int speedFireCost = 12;
+    [SerializeField] private float speedUpgradeFireRate = 0.1f;
 
-    private int playerCurrent;
-    [SerializeField] private float UpDamage = 0.5f;
-    [SerializeField] private int DMG = 12;
+    [Header("UI de Erro")]
+    [SerializeField] private TMP_Text erro;
 
-    // [SerializeField] 
-
-    [Header("variaveis da de botoes")]
-
-
-    [SerializeField] private TMP_Text Erro;
-
+    [Header("Referências")]
+    [SerializeField] private Fire fireScript; 
 
     private void Start()
     {
-        playerCurrent = GetComponent<PlayerMoney>().currentMoney;
-        Erro.gameObject.SetActive(false);
+        erro.gameObject.SetActive(false);
     }
 
     public void DamageUP()
     {
-        if (playerCurrent >= DMG)
+        if (PlayerMoney.Instance.CanAfford(damageCost))
         {
-            playerCurrent -= DMG;
-            UpDamage += GetComponent<Bullet>().baseDamage;
+            PlayerMoney.Instance.RemoveMoney(damageCost);
+            fireScript.currentDamage += damageUpgrade;
         }
-       
+        else
+        {
+            StartCoroutine(ShowError());
+        }
+    }
+    public void FireRateUP()
+    {
+        if (PlayerMoney.Instance.CanAfford(speedFireCost))
+        {
+            PlayerMoney.Instance.RemoveMoney(speedFireCost);
+            fireScript.fireRateMultiplier -= speedUpgradeFireRate;
+
+            if (fireScript.fireRateMultiplier < 0.1f)
+            {
+                fireScript.fireRateMultiplier = 0.1f;
+            }
+        }
+        else
+        {
+            StartCoroutine(ShowError());
+        }
+    }
+
+    private System.Collections.IEnumerator ShowError()
+    {
+        erro.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        erro.gameObject.SetActive(false);
     }
 }
+
 

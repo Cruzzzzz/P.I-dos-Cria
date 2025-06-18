@@ -11,6 +11,7 @@ public class Fire : MonoBehaviour
 
     [Header("Upgrades")]
     [SerializeField] public float fireRateMultiplier = 1f;
+    [SerializeField] public float currentDamage = 1f;
 
     void Start()
     {
@@ -27,7 +28,8 @@ public class Fire : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<Bullet>().SetDamage(currentDamage);
         SoundEffectorController.PlaySoundEffect(SoundsEffects.Shoot);
         canShoot = false;
         Invoke(nameof(ResetShot), currentFireCooldown * fireRateMultiplier);

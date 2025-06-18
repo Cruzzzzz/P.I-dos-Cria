@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [Header("Configuraçôes")]
-    [SerializeField]public float speed = 10f;
-    [SerializeField]public float baseDamage = 1f;
-
+    [Header("Configurações")]
+    [SerializeField] public float speed = 10f;
+    private float damage;
 
     private Rigidbody2D rb;
 
@@ -16,15 +15,19 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 4f);
     }
 
+    public void SetDamage(float dmg)
+    {
+        damage = dmg;
+        Debug.Log("Dano da bala: " + damage);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(baseDamage);
-            Destroy(gameObject); 
+            collision.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
-
-
 }
 
