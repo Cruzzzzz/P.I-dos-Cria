@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
-    private float runSpeed = 10f;
+    [SerializeField]private float runSpeed = 12f;
     private float inicialSpeed;
     [SerializeField] PlayerRotate rotateScript;
 
