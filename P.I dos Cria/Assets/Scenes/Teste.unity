@@ -203,8 +203,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -427,7 +427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: 144}
+  m_AnchoredPosition: {x: -338, y: 95}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &67725862
@@ -1405,14 +1405,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9030112e414af9408c7725b855b4244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcName: Amanda
+  spriteNPC: {fileID: 0}
   dialogueNPC:
+  - Ola. Esta tudo bem?
+  - Ola. Esta tudo bem?
   - Ola. Esta tudo bem?
   dialogueIndex: 0
   dialoguePanel: {fileID: 1295367981}
   dialogueText: {fileID: 727962064}
   nameNPC: {fileID: 53978850}
   imageNPC: {fileID: 1790905286}
-  spriteNPC: {fileID: 0}
   readyToSpeak: 0
   startDialogue: 0
 --- !u!114 &364378086
@@ -2533,7 +2536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 144}
+  m_AnchoredPosition: {x: 281.99997, y: 94.99999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &636351510
@@ -3329,6 +3332,7 @@ GameObject:
   - component: {fileID: 779560340}
   - component: {fileID: 779560342}
   - component: {fileID: 779560341}
+  - component: {fileID: 779560343}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3454,6 +3458,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779560339}
   m_CullTransparentMesh: 1
+--- !u!82 &779560343
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779560339}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: df55c10561b5dc34a93ce6ee8eb7a36f, type: 3}
+  m_Resource: {fileID: 8300000, guid: df55c10561b5dc34a93ce6ee8eb7a36f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &840664260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3929,7 +4030,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34, y: 144}
+  m_AnchoredPosition: {x: -25.000015, y: 94.99999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101261694
@@ -6107,10 +6208,13 @@ MonoBehaviour:
   damageUpgrade: 0.5
   speedFireCost: 10
   speedUpgradeFireRate: 0.1
+  healCost: 20
   erro: {fileID: 779560341}
   fireScript: {fileID: 3489740396582998419}
+  playerHealth: {fileID: 4471311831903668765}
   damageButtonText: {fileID: 522117268}
   fireRateButtonText: {fileID: 1169048480}
+  healButtonText: {fileID: 50440290}
 --- !u!1 &1860437007
 GameObject:
   m_ObjectHideFlags: 0
@@ -6194,9 +6298,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: BuyHealthRestore
+      - m_Target: {fileID: 1832453124}
+        m_TargetAssemblyTypeName: ShopSystem, Assembly-CSharp
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

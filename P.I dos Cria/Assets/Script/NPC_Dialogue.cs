@@ -6,27 +6,33 @@ using System.Collections;
 
 public class NPC_Dialogue : MonoBehaviour
 {
+    [Header("Configurações do NPC")]
+    public string npcName;
+    public Sprite spriteNPC;
+
+    [Header("Diálogo")]
     public string[] dialogueNPC;
     public int dialogueIndex;
 
+    [Header("Componentes")]
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
-
     public TMP_Text nameNPC;
     public Image imageNPC;
-    public Sprite spriteNPC;
 
+    [Header("Controle")]
     public bool readyToSpeak;
     public bool startDialogue;
-    
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool isTyping = false;
+    private Coroutine typingCoroutine;
+
+
     void Start()
     {
         dialoguePanel.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && readyToSpeak)
@@ -36,19 +42,28 @@ public class NPC_Dialogue : MonoBehaviour
                 FindAnyObjectByType<Player>().speed = 0f;
                 StartDialogue();
             }
-            else if (dialogueText.text == dialogueNPC[dialogueIndex])
+            else
             {
-                NextDialogue();
+                if (isTyping)
+                {
+                    StopCoroutine(typingCoroutine);
+                    dialogueText.text = dialogueNPC[dialogueIndex];
+                    isTyping = false;
+                }
+                else
+                {
+                    NextDialogue();
+                }
             }
-
-        }   
+        }
     }
+
     void NextDialogue()
     {
         dialogueIndex++;
         if (dialogueIndex < dialogueNPC.Length)
         {
-            StartCoroutine(ShowDialogue());
+            typingCoroutine = StartCoroutine(ShowDialogue());
         }
         else
         {
@@ -56,6 +71,7 @@ public class NPC_Dialogue : MonoBehaviour
             startDialogue = false;
             dialogueIndex = 0;
             FindAnyObjectByType<Player>().speed = 5f;
+
             ShopOpener shopOpener = GetComponent<ShopOpener>();
             if (shopOpener != null)
             {
@@ -63,38 +79,44 @@ public class NPC_Dialogue : MonoBehaviour
             }
         }
     }
+
     void StartDialogue()
     {
-        nameNPC.text = "";
+        nameNPC.text = npcName; // Define o nome do NPC no painel
         imageNPC.sprite = spriteNPC;
         startDialogue = true;
         dialogueIndex = 0;
         dialoguePanel.SetActive(true);
-        StartCoroutine(ShowDialogue());
+        typingCoroutine = StartCoroutine(ShowDialogue());
     }
+
     IEnumerator ShowDialogue()
     {
         dialogueText.text = "";
+        isTyping = true;
+
         foreach (char letter in dialogueNPC[dialogueIndex])
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.1f);
-        }   
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        isTyping = false;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             readyToSpeak = true;
-            
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             readyToSpeak = false;
-            
         }
     }
 }

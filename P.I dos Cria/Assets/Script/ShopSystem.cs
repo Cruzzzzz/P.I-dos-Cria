@@ -12,15 +12,20 @@ public class ShopSystem : MonoBehaviour
     [SerializeField] private int speedFireCost = 10;
     [SerializeField] private float speedUpgradeFireRate = 0.1f;
 
+    [SerializeField] private int healCost = 20;
+
     [Header("UI de Erro")]
     [SerializeField] private TMP_Text erro;
 
     [Header("Referências")]
     [SerializeField] private Fire fireScript;
+    [SerializeField] private PlayerHealth playerHealth;
+    
 
     [Header("Textos dos Botões")]
     [SerializeField] private TMP_Text damageButtonText;
     [SerializeField] private TMP_Text fireRateButtonText;
+    [SerializeField] private TMP_Text healButtonText;
 
     private void Start()
     {
@@ -63,11 +68,24 @@ public class ShopSystem : MonoBehaviour
             StartCoroutine(ShowError());
         }
     }
+    public void Heal()
+    {
+        if (PlayerMoney.Instance.CanAfford(healCost))
+        {
+            PlayerMoney.Instance.RemoveMoney(healCost);
+            playerHealth.RestoreFullHealth();
+        }
+        else
+        {
+            StartCoroutine(ShowError());
+        }
+    }
 
     private void UpdateButtonTexts()
     {
         damageButtonText.text = $"Dano = ({damageCost}$)";
         fireRateButtonText.text = $"Disparo = ({speedFireCost}$)";
+        healButtonText.text = $"Cura = ({healCost}$)";
     }
 
     private System.Collections.IEnumerator ShowError()

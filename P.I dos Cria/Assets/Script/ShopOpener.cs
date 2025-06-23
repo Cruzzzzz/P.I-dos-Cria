@@ -3,11 +3,11 @@ using UnityEngine;
 public class ShopOpener : MonoBehaviour
 {
     public GameObject shopPanel;
-    private NPC_Dialogue npcDialogue;
+    //private NPC_Dialogue npcDialogue;
 
     void Start()
     {
-        npcDialogue = GetComponent<NPC_Dialogue>();
+        //npcDialogue = GetComponent<NPC_Dialogue>();
         if (shopPanel != null)
         {
             shopPanel.SetActive(false);
