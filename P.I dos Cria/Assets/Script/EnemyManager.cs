@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;
 
-    private List<GameObject> enemies = new List<GameObject>();
+    [SerializeField]private List<GameObject> enemies = new List<GameObject>();
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemies.Count == 0)
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Win");
         }
     }
 }
