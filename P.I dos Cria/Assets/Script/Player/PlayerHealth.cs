@@ -15,6 +15,14 @@ public class PlayerHealth : MonoBehaviour
         {
             healthBar.SetMaxHealth(maxHealth);
         }
+    
+        PlayerData data = SaveSystem.LoadGame();
+        if (data != null)
+        {
+            transform.position = new Vector2(data.posX, data.posY);
+    currentHealth = data.vida;
+            healthBar.SetHealth(currentHealth, maxHealth);
+        }
     }
     public void RestoreFullHealth()
     {
@@ -39,5 +47,9 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 }

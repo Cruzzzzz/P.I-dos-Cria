@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject opcoes;
+    public Button continueButton;
 
+    void Start()
+    {
+        if (continueButton != null)
+            continueButton.interactable = SaveSystem.SaveExists();
+    }
     public void Jogar()
     {
-
         SceneManager.LoadScene("Fase1");
-
+    }
+    public void ContinueGame()
+    {
+        if (SaveSystem.SaveExists())
+            SceneManager.LoadScene("Fase1");
     }
     public void Opcoes()
     {
@@ -19,10 +29,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Creditos()
     {
-
         SceneManager.LoadScene("Creditos");
-
-
     }
     public void Sair()
     {

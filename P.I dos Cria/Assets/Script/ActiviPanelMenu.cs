@@ -1,11 +1,13 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ActiviPanelMenu : MonoBehaviour
 {
-    
     [SerializeField] private GameObject panel;
     private bool isPaused = false;
+
+    public PlayerHealth player; 
 
     void Update()
     {
@@ -37,11 +39,16 @@ public class ActiviPanelMenu : MonoBehaviour
             Debug.LogWarning("Nenhum Panel atribuído ao script TogglePanelWithESC");
         }
     }
-    public void ClosePanelAndUnpause() //Opicional!
+    public void ClosePanelAndUnpause()
     {
         isPaused = false;
         panel.SetActive(false);
         Time.timeScale = 1f;
         AudioListener.pause = false;
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void SaveButton()
+    {
+        SaveSystem.SaveGame(player);
     }
 }
