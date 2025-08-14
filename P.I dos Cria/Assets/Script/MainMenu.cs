@@ -23,6 +23,10 @@ public class MainMenu : MonoBehaviour
         if (SaveSystem.SaveExists())
             SceneManager.LoadScene("Fase1");
     }
+    public void DeleteSave()
+    {
+        SaveSystem.DeleteSave();
+    }
     public void Opcoes()
     {
         SceneManager.LoadScene("Opcoes");
