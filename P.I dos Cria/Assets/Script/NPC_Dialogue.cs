@@ -7,22 +7,22 @@ using System.Collections;
 public class NPC_Dialogue : MonoBehaviour
 {
     [Header("Configurações do NPC")]
-    public string npcName;
-    public Sprite spriteNPC;
+    [SerializeField]private string npcName;
+    [SerializeField]private Sprite spriteNPC;
 
     [Header("Diálogo")]
-    public string[] dialogueNPC;
-    public int dialogueIndex;
+    [SerializeField]private string[] dialogueNPC;
+    [SerializeField] private int dialogueIndex;
 
     [Header("Componentes")]
-    public GameObject dialoguePanel;
-    public TMP_Text dialogueText;
-    public TMP_Text nameNPC;
-    public Image imageNPC;
+    [SerializeField]private GameObject dialoguePanel;
+    [SerializeField]private TMP_Text dialogueText;
+    [SerializeField]private TMP_Text nameNPC;
+    [SerializeField]private Image imageNPC;
 
     [Header("Controle")]
-    public bool readyToSpeak;
-    public bool startDialogue;
+    [SerializeField]private bool readyToSpeak;
+    [SerializeField]private bool startDialogue;
 
     private bool isTyping = false;
     private Coroutine typingCoroutine;
@@ -82,7 +82,7 @@ public class NPC_Dialogue : MonoBehaviour
 
     void StartDialogue()
     {
-        nameNPC.text = npcName; // Define o nome do NPC no painel
+        nameNPC.text = npcName; 
         imageNPC.sprite = spriteNPC;
         startDialogue = true;
         dialogueIndex = 0;

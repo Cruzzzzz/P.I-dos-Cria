@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class EnemyMov : MonoBehaviour
 {
     private Transform playerPosition;
@@ -14,7 +13,6 @@ public class EnemyMov : MonoBehaviour
             playerPosition = player.transform;
         }
     }
-
     void Update()
     {
         if (playerPosition != null)

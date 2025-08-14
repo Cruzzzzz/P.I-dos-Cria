@@ -30,5 +30,4 @@ public class SoundEffectorController : MonoBehaviour
     {
         instance.audioSource.PlayOneShot(instance.sounds[(int)soundType]);
     }
-   // SoundEffectorController.PlaySoundEffect();
 }

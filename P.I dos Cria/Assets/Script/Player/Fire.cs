@@ -35,6 +35,5 @@ public class Fire : MonoBehaviour
         Invoke(nameof(ResetShot), currentFireCooldown * fireRateMultiplier);
     }
     private void ResetShot() => canShoot = true;
-
 }
    

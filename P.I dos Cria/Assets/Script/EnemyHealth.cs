@@ -11,7 +11,6 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         EnemyManager.Instance?.RegisterEnemy(gameObject);
     }
-
     public void TakeDamage(float damage)
     {
         currentHealth -= (int)damage;
@@ -21,7 +20,6 @@ public class EnemyHealth : MonoBehaviour
             Die();
         }
     }
-
     public void Die()
     {
         PlayerMoney.Instance.AddMoney(3);

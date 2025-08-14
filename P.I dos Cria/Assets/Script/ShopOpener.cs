@@ -2,19 +2,14 @@ using UnityEngine;
 
 public class ShopOpener : MonoBehaviour
 {
-    public GameObject shopPanel;
-    //private NPC_Dialogue npcDialogue;
-
+    [SerializeField]private GameObject shopPanel;
     void Start()
     {
-        //npcDialogue = GetComponent<NPC_Dialogue>();
         if (shopPanel != null)
         {
             shopPanel.SetActive(false);
         }
     }
-
-    // Chamado quando o diálogo termina (substitui a verificação no Update)
     public void OnDialogueEnd()
     {
         if (shopPanel != null && !shopPanel.activeSelf)
