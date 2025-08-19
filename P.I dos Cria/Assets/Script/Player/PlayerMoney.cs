@@ -18,7 +18,6 @@ public class PlayerMoney : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     void Start()
     {
         UpdateUI();
@@ -49,5 +48,10 @@ public class PlayerMoney : MonoBehaviour
     void UpdateUI()
     {
         moneyText.text = $"${currentMoney}";
+    }
+    public void LoadMoney(int amount)
+    {
+        currentMoney = amount;
+        UpdateUI();
     }
 }

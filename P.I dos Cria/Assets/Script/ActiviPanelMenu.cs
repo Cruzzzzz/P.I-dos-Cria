@@ -49,6 +49,6 @@ public class ActiviPanelMenu : MonoBehaviour
     }
     public void SaveButton()
     {
-        SaveSystem.SaveGame(player);
+        SaveSystem.SavePlayer(player, PlayerMoney.Instance);
     }
 }

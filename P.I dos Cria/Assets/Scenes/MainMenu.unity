@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984281137}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Jogar
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -962,7 +962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.64400005}
   m_AnchorMax: {x: 0, y: 0.64400005}
-  m_AnchoredPosition: {x: 433.98987, y: 4.269989}
+  m_AnchoredPosition: {x: 433.98987, y: 24}
   m_SizeDelta: {x: 308.02, y: 53.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &614277747
@@ -1011,7 +1011,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1984281137}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Opcoes
+        m_MethodName: Options
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1116,9 +1116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Controles
-
-'
+  m_text: Controls
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1231,7 +1229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51, y: 0}
+  m_AnchoredPosition: {x: 54.01, y: 1.515}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966638832
@@ -1254,7 +1252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Op\xE7\xF5es"
+  m_text: Options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1458,7 +1456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sair
+  m_text: 'Exit
 
 '
   m_isRightToLeft: 0
@@ -2049,9 +2047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Crditos
-
-'
+  m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2594,8 +2590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd1d468225295948bf77680df3f476c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opcoes: {fileID: 614277745}
-  continueButton: {fileID: 0}
+  continueButton: {fileID: 69586577}
+  deleteSaveButton: {fileID: 1971782301}
 --- !u!4 &1984281138
 Transform:
   m_ObjectHideFlags: 0
@@ -2919,7 +2915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 0, y: 0.25}
-  m_AnchoredPosition: {x: 433.98987, y: 24}
+  m_AnchoredPosition: {x: 433.98987, y: 44}
   m_SizeDelta: {x: 308.02, y: 53.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2108975057

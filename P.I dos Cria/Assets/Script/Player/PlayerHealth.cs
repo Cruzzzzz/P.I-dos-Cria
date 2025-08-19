@@ -1,6 +1,7 @@
-
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
+
+
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
@@ -9,21 +10,24 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        if (SaveSystem.isLoading)
+        {
+            LoadPlayer();
+            SaveSystem.isLoading = false;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+            if (healthBar != null)
+                healthBar.SetMaxHealth(maxHealth);
+        }
 
-        currentHealth = maxHealth;
-        if (healthBar != null)
-        {
-            healthBar.SetMaxHealth(maxHealth);
-        }
-    
-        PlayerData data = SaveSystem.LoadGame();
-        if (data != null)
-        {
-            transform.position = new Vector2(data.posX, data.posY);
-    currentHealth = data.vida;
-            healthBar.SetHealth(currentHealth, maxHealth);
-        }
     }
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     public void RestoreFullHealth()
     {
         currentHealth = maxHealth;
@@ -43,13 +47,21 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
     }
-
     void Die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public int GetCurrentHealth()
+    public void LoadPlayer()
     {
-        return currentHealth;
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            transform.position = new Vector2(data.posX, data.posY);
+            currentHealth = data.vida;
+            if (healthBar != null)
+                healthBar.SetHealth(currentHealth, maxHealth);
+
+            PlayerMoney.Instance.currentMoney = data.dinheiro;
+        }
     }
 }

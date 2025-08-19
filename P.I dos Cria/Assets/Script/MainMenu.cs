@@ -1,47 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject opcoes;
     public Button continueButton;
+    public Button deleteSaveButton;
 
-    void Start()
+    private void Start()
     {
-        if (continueButton != null)
-            continueButton.interactable = SaveSystem.SaveExists();
+        if (SaveSystem.HasSave())
+        {
+            continueButton.gameObject.SetActive(true);
+            deleteSaveButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            continueButton.gameObject.SetActive(false);
+            deleteSaveButton.gameObject.SetActive(false);
+        }
     }
-    public void Jogar()
+    public void Play()
     {
+        SaveSystem.DeleteSave();
         SceneManager.LoadScene("Fase1");
     }
+
     public void ContinueGame()
     {
-        if (SaveSystem.SaveExists())
+        if (SaveSystem.HasSave())
+        {
+            SaveSystem.isLoading = true; 
             SceneManager.LoadScene("Fase1");
+        }
     }
+
     public void DeleteSave()
     {
         SaveSystem.DeleteSave();
+
+        continueButton.gameObject.SetActive(false);
+        deleteSaveButton.gameObject.SetActive(false);
     }
-    public void Opcoes()
+
+    public void Options()
     {
         SceneManager.LoadScene("Opcoes");
     }
+
     public void Creditos()
     {
         SceneManager.LoadScene("Creditos");
     }
+
     public void Sair()
     {
         Application.Quit();
         Debug.Log("Saiu Do Gamezada");
-    }
-    public void ExitMenuPlayer()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 }

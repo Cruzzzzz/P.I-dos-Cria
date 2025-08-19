@@ -1,43 +1,50 @@
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public static class SaveSystem
 {
-    private static string savePath = Application.persistentDataPath + "/save.json";
+    private static string path = Application.persistentDataPath + "/player.sav";
+    public static bool isLoading = false;
 
-    public static void SaveGame(PlayerHealth player)
+    public static void SavePlayer(PlayerHealth player, PlayerMoney money)
     {
-        PlayerData data = new PlayerData(player);
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(savePath, json);
-        Debug.Log("Jogo salvo em: " + savePath);
+        BinaryFormatter formatter = new BinaryFormatter();
+        using (FileStream stream = new FileStream(path, FileMode.Create))
+        {
+            PlayerData data = new PlayerData(player, money);
+            formatter.Serialize(stream, data);
+        }
     }
 
-    public static PlayerData LoadGame()
+    public static PlayerData LoadPlayer()
     {
-        if (File.Exists(savePath))
+        if (File.Exists(path))
         {
-            string json = File.ReadAllText(savePath);
-            return JsonUtility.FromJson<PlayerData>(json);
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream stream = new FileStream(path, FileMode.Open))
+            {
+                PlayerData data = formatter.Deserialize(stream) as PlayerData;
+                return data;
+            }
         }
         else
         {
-            Debug.LogWarning("Nenhum save encontrado.");
+            Debug.LogWarning("Nenhum save encontrado!");
             return null;
         }
     }
 
     public static void DeleteSave()
     {
-        if (File.Exists(savePath))
+        if (File.Exists(path))
         {
-            File.Delete(savePath);
-            Debug.Log("Save deletado.");
+            File.Delete(path);
         }
     }
 
-    public static bool SaveExists()
+    public static bool HasSave()
     {
-        return File.Exists(savePath);
+        return File.Exists(path);
     }
 }
