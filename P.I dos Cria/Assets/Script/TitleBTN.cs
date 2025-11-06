@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class TitleBTN : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private GameObject selection;
-    private Button btn;
-    private UnityAction action;
 
     public void OnDeselect(BaseEventData eventData)
     {
@@ -30,19 +28,18 @@ public class TitleBTN : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointe
         selection.SetActive(true);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         selection = GetComponentInChildren<Animator>(true).gameObject;
-        btn = GetComponentInChildren<Button>();
         //btn.onClick.RemoveAllListeners();
-        btn.onClick.RemoveListener(action);
-        btn.onClick.AddListener(action);
     }
     public void SceneLoader(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
 
+    void Update()
+    {
 
+    }
 }
