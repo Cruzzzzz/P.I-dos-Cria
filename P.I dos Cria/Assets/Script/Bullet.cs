@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
     private float damage;
 
     private Rigidbody2D rb;
-    private bool isBeingDestroyed = false;
+
 
     void Start()
     {
@@ -23,14 +23,15 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isBeingDestroyed) return;
-        isBeingDestroyed = true;
-
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject, 0.5f);
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
 
