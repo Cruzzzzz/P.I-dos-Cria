@@ -1,7 +1,11 @@
 {
   "dependencies": {
     "com.h8man.2d.navmeshplus": {
+<<<<<<< Updated upstream
       "version": "file:C:/Users/andriel.viega/Downloads/NavMeshPlus-master/NavMeshPlus-master",
+=======
+      "version": "file:C:/Users/arthur.silva21/Downloads/NavMeshPlus-master/NavMeshPlus-master",
+>>>>>>> Stashed changes
       "depth": 0,
       "source": "local",
       "dependencies": {}
