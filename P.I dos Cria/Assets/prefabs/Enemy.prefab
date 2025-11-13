@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2901529835014654392}
   - component: {fileID: 8401990285926753773}
   - component: {fileID: 3804416227021405582}
-  - component: {fileID: 7429038807546721132}
   - component: {fileID: 2229850776277709034}
   - component: {fileID: 5829305017727889892}
+  - component: {fileID: 7765378576338929873}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -169,20 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
---- !u!114 &7429038807546721132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3199652764479589920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430604421e38d2c4db66f0b28bf248e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedEnemy: 5
-  followRange: 15
 --- !u!82 &2229850776277709034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -302,3 +288,17 @@ NavMeshAgent:
   m_BaseOffset: 1.4999923
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7765378576338929873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199652764479589920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430604421e38d2c4db66f0b28bf248e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMov
+  speedEnemy: 3
+  followRange: 5
