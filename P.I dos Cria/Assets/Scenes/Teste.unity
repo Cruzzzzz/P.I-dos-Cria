@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &262521806
 Rigidbody2D:
   serializedVersion: 5
@@ -1068,6 +1069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &329867764
 Rigidbody2D:
   serializedVersion: 5
@@ -1615,6 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &392673177
 Rigidbody2D:
   serializedVersion: 5
@@ -2040,6 +2043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &517846663
 Rigidbody2D:
   serializedVersion: 5
@@ -3192,6 +3196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &738319196
 Rigidbody2D:
   serializedVersion: 5
@@ -3871,6 +3876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &1081828705
 Rigidbody2D:
   serializedVersion: 5
@@ -5614,6 +5620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &1701507219
 Rigidbody2D:
   serializedVersion: 5
@@ -6102,6 +6109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &1798794777
 Rigidbody2D:
   serializedVersion: 5
@@ -6412,7 +6420,7 @@ Transform:
   m_GameObject: {fileID: 1855525987}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.354607, y: -5.3027425, z: 0}
+  m_LocalPosition: {x: -9.93, y: -5.3027425, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6849,6 +6857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  moneyReward: 3
 --- !u!50 &1954504998
 Rigidbody2D:
   serializedVersion: 5
