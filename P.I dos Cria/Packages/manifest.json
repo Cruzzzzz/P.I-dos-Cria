@@ -1,10 +1,6 @@
 {
   "dependencies": {
-<<<<<<< Updated upstream
     "com.h8man.2d.navmeshplus": "file:C:/Users/andriel.viega/Downloads/NavMeshPlus-master/NavMeshPlus-master",
-=======
-    "com.h8man.2d.navmeshplus": "file:C:/Users/arthur.silva21/Downloads/NavMeshPlus-master/NavMeshPlus-master",
->>>>>>> Stashed changes
     "com.unity.2d.enhancers": "1.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.assistant": "1.0.0-pre.12",
