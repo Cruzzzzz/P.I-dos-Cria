@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 3da08c39fb85b984397371358e9a13cf
+guid: 7f14118c435173c4db0a0a7b5d1ce053
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3804128814142916389
-    second: fogueirebas_0
+      213: 6911056676163173146
+    second: campfire-Sheet_0
   - first:
-      213: 8077907295759752319
-    second: fogueirebas_1
+      213: 3638588854622080461
+    second: campfire-Sheet_1
   - first:
-      213: -7563822433556828180
-    second: fogueirebas_2
+      213: 4258691910607252123
+    second: campfire-Sheet_2
   - first:
-      213: -5993923077668875863
-    second: fogueirebas_3
+      213: -167408823652372025
+    second: campfire-Sheet_3
   - first:
-      213: -1903396303358496018
-    second: fogueirebas_4
+      213: -6563699389893897227
+    second: campfire-Sheet_4
   - first:
-      213: -4570699252645744134
-    second: fogueirebas_5
-  - first:
-      213: 5280261154551885327
-    second: fogueirebas_6
-  - first:
-      213: -1692292483677892736
-    second: fogueirebas_7
-  - first:
-      213: -5750778659015390070
-    second: fogueirebas_8
+      213: -2002984010778373910
+    second: campfire-Sheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -137,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fogueirebas_0
+      name: campfire-Sheet_0
       rect:
         serializedVersion: 2
-        x: 249
-        y: 0
-        width: 241
-        height: 351
+        x: 1
+        y: 1
+        width: 33
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52701d6500bfac430800000000000000
-      internalID: 3804128814142916389
+      spriteID: a1b3c4d3e6109ef50800000000000000
+      internalID: 6911056676163173146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogueirebas_4
+      name: campfire-Sheet_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 0
-        width: 237
-        height: 351
+        x: 37
+        y: 1
+        width: 33
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee2768f8527c595e0800000000000000
-      internalID: -1903396303358496018
+      spriteID: dcdc173094dde7230800000000000000
+      internalID: 3638588854622080461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fogueirebas_6
+      name: campfire-Sheet_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 238
-        height: 351
+        x: 73
+        y: 1
+        width: 33
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,8 +187,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0eeb564b81474940800000000000000
-      internalID: 5280261154551885327
+      spriteID: b9a239baab9e91b30800000000000000
+      internalID: 4258691910607252123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: campfire-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c13fe5df8e3dadf0800000000000000
+      internalID: -167408823652372025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: campfire-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f31dec4e2e09e4a0800000000000000
+      internalID: -6563699389893897227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: campfire-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae094ca87a8f334e0800000000000000
+      internalID: -2002984010778373910
       vertices: []
       indices: 
       edges: []
@@ -206,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 35769b2a1d745a6429f9300fafcaac0b
+    spriteID: dd604bf6edfec0a43ab2d0b23636389c
     internalID: 0
     vertices: []
     indices: 
@@ -218,15 +275,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      fogueirebas_0: 3804128814142916389
-      fogueirebas_1: 8077907295759752319
-      fogueirebas_2: -7563822433556828180
-      fogueirebas_3: -5993923077668875863
-      fogueirebas_4: -1903396303358496018
-      fogueirebas_5: -4570699252645744134
-      fogueirebas_6: 5280261154551885327
-      fogueirebas_7: -1692292483677892736
-      fogueirebas_8: -5750778659015390070
+      campfire-Sheet_0: 6911056676163173146
+      campfire-Sheet_1: 3638588854622080461
+      campfire-Sheet_2: 4258691910607252123
+      campfire-Sheet_3: -167408823652372025
+      campfire-Sheet_4: -6563699389893897227
+      campfire-Sheet_5: -2002984010778373910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
