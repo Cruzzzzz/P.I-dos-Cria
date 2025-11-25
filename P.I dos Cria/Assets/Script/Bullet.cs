@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
     [Header("Configurações")]
     [SerializeField] public float speed = 10f;
     private float damage;
+    [SerializeField] private GameObject bloodEffect;
 
     private Rigidbody2D rb;
 
@@ -21,12 +22,21 @@ public class Bullet : MonoBehaviour
         Debug.Log("Dano da bala: " + damage);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(damage);
-            Destroy(gameObject);
+
+            if (bloodEffect != null)
+            {
+                Instantiate(bloodEffect, collision.transform.position, Quaternion.identity);
+            }
+
+            if (!PlayerShootPowerups.Instance.bulletPenetration)
+            {
+                Destroy(gameObject);
+            }
         }
     }
     private void OnBecameInvisible()
@@ -34,4 +44,3 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
