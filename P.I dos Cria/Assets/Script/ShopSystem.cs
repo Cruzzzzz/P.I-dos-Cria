@@ -17,7 +17,7 @@ public class ShopSystem : MonoBehaviour
     [SerializeField] private TMP_Text erro;
 
     [Header("Referências")]
-    [SerializeField] private Fire fireScript;
+    [SerializeField] private FireAuto fireScript;
     [SerializeField] private PlayerHealth playerHealth;
     
 

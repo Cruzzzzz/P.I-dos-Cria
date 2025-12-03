@@ -22,13 +22,13 @@ public class ShopOpener : MonoBehaviour
     {
         shopPanel.SetActive(true);
         FindAnyObjectByType<Player>().speed = 0f;
-        FindAnyObjectByType<Fire>().canShoot = false;
+        FindAnyObjectByType<FireAuto>().canShoot = false;
     }
 
     public void CloseShop()
     {
         shopPanel.SetActive(false);
         FindAnyObjectByType<Player>().speed = 5f;
-        FindAnyObjectByType<Fire>().canShoot = true;
+        FindAnyObjectByType<FireAuto>().canShoot = true;
     }
 }

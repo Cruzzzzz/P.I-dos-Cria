@@ -2,47 +2,56 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;
-    [SerializeField]private float runSpeed = 12f;
+    [Header("Movement")]
+    public float speed = 12f;
     private float inicialSpeed;
-    [SerializeField] PlayerRotate rotateScript;
+
+    [Header("Joysticks")]
+    public Joystick moveJoystick; // joystick de movimento
+
+    [Header("Weapon System")]
+    public Transform weaponSpawn;      // onde a arma nasce
+    public GameObject weaponPrefab;    // prefab da arma
+
+    private FireAuto fireAuto;
+    private AutoAimShoot autoAim;
 
     private Rigidbody2D rb;
 
     void Start()
     {
-        rotateScript = GetComponentInChildren<PlayerRotate>();
         rb = GetComponent<Rigidbody2D>();
         inicialSpeed = speed;
+
+        // ============================
+        //     INSTANCIA A ARMA
+        // ============================
+        GameObject arma = Instantiate(
+            weaponPrefab,
+            weaponSpawn.position,
+            weaponSpawn.rotation,
+            transform
+        );
+
+        // pega os componentes da arma
+        fireAuto = arma.GetComponent<FireAuto>();
+        autoAim = arma.GetComponent<AutoAimShoot>();
+
+        // conecta os scripts
+        autoAim.fireAuto = fireAuto;
     }
+
     void Update()
     {
         MovePlayer();
-        rotateScript.RotateTowardsMouse();
-        playerRun();
     }
 
     void MovePlayer()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
+        float horizontal = moveJoystick.Horizontal;
+        float vertical = moveJoystick.Vertical;
 
         Vector2 moveDirection = new Vector2(horizontal, vertical).normalized;
-
-
         rb.linearVelocity = moveDirection * speed;
-    }
-    void playerRun()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            speed = runSpeed;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed = inicialSpeed;
-        }
-
     }
 }

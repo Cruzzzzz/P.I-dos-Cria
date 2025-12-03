@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -2907903302683758378}
   - component: {fileID: 9101299594493749104}
   - component: {fileID: -4451189575134894855}
+  - component: {fileID: 6348796663783277037}
+  - component: {fileID: -7439860377748254418}
   m_Layer: 6
   m_Name: "Lan\xE7a"
   m_TagString: Untagged
@@ -182,3 +184,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6348796663783277037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895602555116276984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ab50a412dd22c4fb952d330fb4f4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoAimShoot
+  aimRange: 10
+  rotateSpeed: 10
+  fireAuto: {fileID: 0}
+--- !u!114 &-7439860377748254418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895602555116276984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb32d41ba86d7540831c848846e8f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireAuto
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  baseFireCooldown: 1
+  canShoot: 1
+  fireRateMultiplier: 1
+  currentDamage: 1
+  target: {fileID: 0}
