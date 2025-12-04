@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private PlayerAimAndAutoShoot autoAim;
 
     private Rigidbody2D rb;
+    public PlayerRotate rotateScript;
 
     void Start()
     {
@@ -43,7 +44,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        MovePlayer();
+
+            rotateScript.RotateTowardsJoystick();
+
     }
 
     void MovePlayer()

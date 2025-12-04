@@ -23,7 +23,7 @@ public class PlayerAimAndAutoShoot : MonoBehaviour
 
     void HandleAim()
     {
-        // direção do joystick
+
         Vector2 dir = new Vector2(aimJoystick.Horizontal, aimJoystick.Vertical);
 
         if (dir.magnitude > aimDeadzone)
@@ -32,6 +32,7 @@ public class PlayerAimAndAutoShoot : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
         }
     }
+
 
     void HandleAutoShoot()
     {

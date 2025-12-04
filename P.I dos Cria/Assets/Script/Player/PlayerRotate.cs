@@ -1,19 +1,37 @@
 using UnityEngine;
+
 public class PlayerRotate : MonoBehaviour
 {
+    public Joystick aimJoystick;
     public float rotationSpeed = 10f;
-    public void RotateTowardsMouse()
+    public float deadzone = 0.2f;
+
+    private void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RotateTowardsJoystick();
+    }
 
+    public void RotateTowardsJoystick()
+    {
+        if (aimJoystick == null)
+        {
+            Debug.LogError("AIM JOYSTICK NÃO REFERENCIADO!");
+            return;
+        }
 
-        Vector2 direction = (mousePosition - transform.position).normalized;
+        Vector2 dir = new Vector2(aimJoystick.Horizontal, aimJoystick.Vertical);
 
+        if (dir.magnitude < deadzone)
+            return;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
+        Quaternion targetRotation = Quaternion.Euler(0, 0, angle - 90f);
 
-        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
     }
 }

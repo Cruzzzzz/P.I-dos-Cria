@@ -2221,10 +2221,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 846852865}
-    - targetCorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 846852864}
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!1001 &123758707
@@ -2893,7 +2889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &205805523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -135844,27 +135840,6 @@ MonoBehaviour:
   fireRateMultiplier: 1
   currentDamage: 1
   target: {fileID: 0}
---- !u!114 &846852865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846852862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ab50a412dd22c4fb952d330fb4f4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAimAndAutoShoot
-  aimJoystick: {fileID: 846852866}
-  aimDeadzone: 0.2
-  detectionRange: 8
-  visionAngle: 45
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  fireAuto: {fileID: 846852864}
-  firePoint: {fileID: 304560736}
 --- !u!114 &846852866 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -143480,7 +143455,7 @@ MonoBehaviour:
   speedUpgradeFireRate: 0.1
   healCost: 20
   erro: {fileID: 1126553527}
-  fireScript: {fileID: 0}
+  fireScript: {fileID: 1565884879}
   playerHealth: {fileID: 1565884872}
   damageButtonText: {fileID: 2139025208}
   fireRateButtonText: {fileID: 170517888}
@@ -288696,6 +288671,7 @@ GameObject:
   - component: {fileID: 1565884871}
   - component: {fileID: 1565884878}
   - component: {fileID: 1565884879}
+  - component: {fileID: 1565884880}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -288822,6 +288798,7 @@ MonoBehaviour:
     type: 3}
   weaponPrefab: {fileID: 3895602555116276984, guid: 69670f7a08329364f942b5aa3f6c161d,
     type: 3}
+  rotateScript: {fileID: 2131456455}
 --- !u!4 &1565884877
 Transform:
   m_ObjectHideFlags: 0
@@ -288872,6 +288849,27 @@ MonoBehaviour:
   fireRateMultiplier: 1
   currentDamage: 1
   target: {fileID: 0}
+--- !u!114 &1565884880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565884870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ab50a412dd22c4fb952d330fb4f4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAimAndAutoShoot
+  aimJoystick: {fileID: 846852866}
+  aimDeadzone: 0.2
+  detectionRange: 8
+  visionAngle: 45
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  fireAuto: {fileID: 846852864}
+  firePoint: {fileID: 304560736}
 --- !u!1 &1566480136
 GameObject:
   m_ObjectHideFlags: 0
@@ -301907,7 +301905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2131456452}
   - component: {fileID: 2131456454}
-  - component: {fileID: 2131456453}
+  - component: {fileID: 2131456455}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -301931,19 +301929,6 @@ Transform:
   - {fileID: 304560736}
   m_Father: {fileID: 1565884877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2131456453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131456451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c87cfdc56612f469bd36a863aa3af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 10
 --- !u!212 &2131456454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -302003,6 +301988,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2131456455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131456451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c87cfdc56612f469bd36a863aa3af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimJoystick: {fileID: 846852866}
+  rotationSpeed: 10
+  deadzone: 0.2
 --- !u!1 &2139025206
 GameObject:
   m_ObjectHideFlags: 0
