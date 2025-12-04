@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public GameObject weaponPrefab;    // prefab da arma
 
     private FireAuto fireAuto;
-    private AutoAimShoot autoAim;
+    private PlayerAimAndAutoShoot autoAim;
 
     private Rigidbody2D rb;
 
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
         // pega os componentes da arma
         fireAuto = arma.GetComponent<FireAuto>();
-        autoAim = arma.GetComponent<AutoAimShoot>();
+        autoAim = arma.GetComponent<PlayerAimAndAutoShoot>();
 
         // conecta os scripts
         autoAim.fireAuto = fireAuto;

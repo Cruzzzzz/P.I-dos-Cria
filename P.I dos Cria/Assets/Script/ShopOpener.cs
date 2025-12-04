@@ -28,7 +28,7 @@ public class ShopOpener : MonoBehaviour
     public void CloseShop()
     {
         shopPanel.SetActive(false);
-        FindAnyObjectByType<Player>().speed = 5f;
+        FindAnyObjectByType<Player>().speed = 12f;
         FindAnyObjectByType<FireAuto>().canShoot = true;
     }
 }

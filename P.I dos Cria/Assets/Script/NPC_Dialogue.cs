@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,25 +6,26 @@ using System.Collections;
 public class NPC_Dialogue : MonoBehaviour
 {
     [Header("Configurações do NPC")]
-    [SerializeField]private string npcName;
-    [SerializeField]private Sprite spriteNPC;
+    [SerializeField] private string npcName;
+    [SerializeField] private Sprite spriteNPC;
 
     [Header("Diálogo")]
-    [SerializeField]private string[] dialogueNPC;
+    [SerializeField] private string[] dialogueNPC;
     [SerializeField] private int dialogueIndex;
 
     [Header("Componentes")]
-    [SerializeField]private GameObject dialoguePanel;
-    [SerializeField]private TMP_Text dialogueText;
-    [SerializeField]private TMP_Text nameNPC;
-    [SerializeField]private Image imageNPC;
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private TMP_Text nameNPC;
+    [SerializeField] private Image imageNPC;
 
     [Header("Controle")]
-    [SerializeField]private bool readyToSpeak;
-    [SerializeField]private bool startDialogue;
+    public bool readyToSpeak;
+    private bool startDialogue;
 
     private bool isTyping = false;
     private Coroutine typingCoroutine;
+    public static NPC_Dialogue npcAtual;
 
 
     void Start()
@@ -33,27 +33,26 @@ public class NPC_Dialogue : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
-    void Update()
+    public void Interagir()
     {
-        if (Input.GetKeyDown(KeyCode.E) && readyToSpeak)
+        if (!readyToSpeak) return;
+
+        if (!startDialogue)
         {
-            if (!startDialogue)
+            Object.FindFirstObjectByType<Player>().speed = 0f;
+            StartDialogue();
+        }
+        else
+        {
+            if (isTyping)
             {
-                FindAnyObjectByType<Player>().speed = 0f;
-                StartDialogue();
+                StopCoroutine(typingCoroutine);
+                dialogueText.text = dialogueNPC[dialogueIndex];
+                isTyping = false;
             }
             else
             {
-                if (isTyping)
-                {
-                    StopCoroutine(typingCoroutine);
-                    dialogueText.text = dialogueNPC[dialogueIndex];
-                    isTyping = false;
-                }
-                else
-                {
-                    NextDialogue();
-                }
+                NextDialogue();
             }
         }
     }
@@ -70,22 +69,22 @@ public class NPC_Dialogue : MonoBehaviour
             dialoguePanel.SetActive(false);
             startDialogue = false;
             dialogueIndex = 0;
-            FindAnyObjectByType<Player>().speed = 5f;
+
+            Object.FindFirstObjectByType<Player>().speed = 12f;
 
             ShopOpener shopOpener = GetComponent<ShopOpener>();
             if (shopOpener != null)
-            {
                 shopOpener.OnDialogueEnd();
-            }
         }
     }
 
     void StartDialogue()
     {
-        nameNPC.text = npcName; 
+        nameNPC.text = npcName;
         imageNPC.sprite = spriteNPC;
         startDialogue = true;
         dialogueIndex = 0;
+
         dialoguePanel.SetActive(true);
         typingCoroutine = StartCoroutine(ShowDialogue());
     }
@@ -109,6 +108,7 @@ public class NPC_Dialogue : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             readyToSpeak = true;
+            NPC_Dialogue.npcAtual = this;
         }
     }
 
@@ -117,6 +117,10 @@ public class NPC_Dialogue : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             readyToSpeak = false;
+
+            if (NPC_Dialogue.npcAtual == this)
+                NPC_Dialogue.npcAtual = null;
         }
     }
+
 }

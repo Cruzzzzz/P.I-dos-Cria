@@ -1,24 +1,26 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // precisa para Button
 
-public class InteraçãoNPC : MonoBehaviour
+public class InteracaoNPC : MonoBehaviour
 {
-    [SerializeField] private TMP_Text Aperte_E;
+    [SerializeField] private GameObject botaoInteragir;
+    // pode ser o Button direto ou só o GameObject do botão
 
     void Start()
     {
-        Aperte_E.gameObject.SetActive(false);
+        botaoInteragir.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            Aperte_E.gameObject.SetActive(true);
+            botaoInteragir.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            Aperte_E.gameObject.SetActive(false);
+            botaoInteragir.SetActive(false);
     }
 }
+

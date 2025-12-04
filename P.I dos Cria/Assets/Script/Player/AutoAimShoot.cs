@@ -1,56 +1,76 @@
 using UnityEngine;
 
-public class AutoAimShoot : MonoBehaviour
+public class PlayerAimAndAutoShoot : MonoBehaviour
 {
-    public float aimRange = 10f;       // distância pra procurar inimigos
-    public float rotateSpeed = 10f;    // suavidade da rotação
-    public FireAuto fireAuto;          // recebe do Player no Start
+    [Header("Joysticks")]
+    public Joystick aimJoystick; // joystick da mira
 
-    void Update()
+    [Header("Configurações")]
+    public float aimDeadzone = 0.2f;
+    public float detectionRange = 8f;
+    public float visionAngle = 45f;
+    public LayerMask enemyLayer;
+
+    [Header("Referências")]
+    public FireAuto fireAuto;
+    public Transform firePoint;
+
+    private void Update()
     {
-        Transform target = FindClosestEnemy();
+        HandleAim();
+        HandleAutoShoot();
+    }
 
-        fireAuto.target = target; // passa o target pro FireAuto
+    void HandleAim()
+    {
+        // direção do joystick
+        Vector2 dir = new Vector2(aimJoystick.Horizontal, aimJoystick.Vertical);
 
-        if (target != null)
+        if (dir.magnitude > aimDeadzone)
         {
-            AimAtTarget(target);
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
         }
     }
 
-    Transform FindClosestEnemy()
+    void HandleAutoShoot()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, aimRange);
+        // raycast em cone pra achar inimigos na frente
+        Collider2D enemy = FindEnemyInFront();
 
-        float minDist = Mathf.Infinity;
-        Transform closest = null;
+        if (enemy != null)
+        {
+            // manda atirar
+            fireAuto.canShoot = true;
+        }
+        else
+        {
+            fireAuto.canShoot = false;
+        }
+    }
+
+    Collider2D FindEnemyInFront()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRange, enemyLayer);
 
         foreach (var hit in hits)
         {
-            if (hit.CompareTag("Enemy"))
+            Vector2 dirToEnemy = (hit.transform.position - transform.position).normalized;
+
+            float angle = Vector2.Angle(transform.up, dirToEnemy);
+
+            if (angle < visionAngle)
             {
-                float d = Vector2.Distance(transform.position, hit.transform.position);
-                if (d < minDist)
-                {
-                    minDist = d;
-                    closest = hit.transform;
-                }
+                return hit;
             }
         }
 
-        return closest;
+        return null;
     }
 
-    void AimAtTarget(Transform target)
+    private void OnDrawGizmosSelected()
     {
-        Vector2 dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        Quaternion targetRot = Quaternion.Euler(0, 0, angle);
-        transform.rotation = Quaternion.Lerp(
-            transform.rotation,
-            targetRot,
-            rotateSpeed * Time.deltaTime
-        );
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
