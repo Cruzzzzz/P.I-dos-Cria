@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireAuto : MonoBehaviour
 {
-    [Header("Configura��es")]
+    [Header("Configurações")]
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float baseFireCooldown = 1f;
@@ -18,10 +18,28 @@ public class FireAuto : MonoBehaviour
 
     void Update()
     {
-        if (target != null && canShoot)
+
+        if (target == null) return;      // sem inimigo → não atira
+
+        if (!canShoot) return;           // esperando cooldown → não atira
+
+        // só atira se o inimigo estiver no campo de visão
+        if (PodeVerOInimigo())
         {
             Shoot();
         }
+    }
+    private bool PodeVerOInimigo()
+    {
+        Vector2 dir = target.position - firePoint.position;
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            firePoint.position,
+            dir.normalized,
+            100
+        );
+
+        return hit && hit.collider.CompareTag("Enemy");
     }
 
     public void Shoot()

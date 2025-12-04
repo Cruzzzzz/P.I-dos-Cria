@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class PlayerAimAndAutoShoot : MonoBehaviour
 {
     [Header("Joysticks")]
-    public Joystick aimJoystick; // joystick da mira
+    public Joystick aimJoystick;
 
-    [Header("Configurações")]
+    [Header("ConfiguraÃ§Ãµes")]
     public float aimDeadzone = 0.2f;
     public float detectionRange = 8f;
     public float visionAngle = 45f;
     public LayerMask enemyLayer;
 
-    [Header("Referências")]
+    [Header("ReferÃªncias")]
     public FireAuto fireAuto;
     public Transform firePoint;
 
@@ -20,22 +20,9 @@ public class PlayerAimAndAutoShoot : MonoBehaviour
         HandleAutoShoot();
     }
 
-
-
     void HandleAutoShoot()
     {
-        // raycast em cone pra achar inimigos na frente
-        Collider2D enemy = FindEnemyInFront();
 
-        if (enemy != null)
-        {
-            // manda atirar
-            fireAuto.canShoot = true;
-        }
-        else
-        {
-            fireAuto.canShoot = false;
-        }
     }
 
     Collider2D FindEnemyInFront()
@@ -45,21 +32,16 @@ public class PlayerAimAndAutoShoot : MonoBehaviour
         foreach (var hit in hits)
         {
             Vector2 dirToEnemy = (hit.transform.position - transform.position).normalized;
-
             float angle = Vector2.Angle(transform.up, dirToEnemy);
 
+            // precisa mover o joystick
+            Vector2 aimDir = new Vector2(aimJoystick.Horizontal, aimJoystick.Vertical);
+            if (aimDir.magnitude <= aimDeadzone)
+                continue;
+
             if (angle < visionAngle)
-            {
                 return hit;
-            }
         }
-
         return null;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }

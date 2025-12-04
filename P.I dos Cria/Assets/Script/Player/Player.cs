@@ -24,9 +24,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         inicialSpeed = speed;
 
-        // ============================
-        //     INSTANCIA A ARMA
-        // ============================
+
+        // instancia a arma
         GameObject arma = Instantiate(
             weaponPrefab,
             weaponSpawn.position,
@@ -34,13 +33,21 @@ public class Player : MonoBehaviour
             transform
         );
 
-        // pega os componentes da arma
-        fireAuto = arma.GetComponent<FireAuto>();
-        autoAim = arma.GetComponent<PlayerAimAndAutoShoot>();
+        // pega os componentes em QUALQUER parte da arma
+        fireAuto = arma.GetComponentInChildren<FireAuto>();
+        autoAim = arma.GetComponentInChildren<PlayerAimAndAutoShoot>();
 
-        // conecta os scripts
+        if (fireAuto == null)
+            Debug.LogError("FireAuto NÃO FOI ENCONTRADO na arma!");
+
+        if (autoAim == null)
+            Debug.LogError("PlayerAimAndAutoShoot NÃO FOI ENCONTRADO na arma!");
+
+        // conecta fireAuto no autoAim
         autoAim.fireAuto = fireAuto;
+
     }
+
 
     void Update()
     {
