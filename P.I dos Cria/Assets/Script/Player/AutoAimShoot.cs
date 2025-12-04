@@ -17,21 +17,9 @@ public class PlayerAimAndAutoShoot : MonoBehaviour
 
     private void Update()
     {
-        HandleAim();
         HandleAutoShoot();
     }
 
-    void HandleAim()
-    {
-
-        Vector2 dir = new Vector2(aimJoystick.Horizontal, aimJoystick.Vertical);
-
-        if (dir.magnitude > aimDeadzone)
-        {
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
-        }
-    }
 
 
     void HandleAutoShoot()

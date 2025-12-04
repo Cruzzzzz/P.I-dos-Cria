@@ -44,9 +44,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+            MovePlayer();
             rotateScript.RotateTowardsJoystick();
-
     }
 
     void MovePlayer()
